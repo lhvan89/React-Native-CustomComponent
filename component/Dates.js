@@ -9,9 +9,18 @@ export default class componentName extends Component {
       startDate: 'Mon Aug. 21 ; 10:00 AM',
       endDate: 'Mon Aug. 23 ; 10:00 AM'
     };
+  }
 
-    this.editStartDay = this.editStartDay.bind(this);
-    this.editEndDay = this.editEndDay.bind(this);
+  updateStartDate (date) {
+    this.setState({
+      startDate: date
+    });
+  }
+
+  updateEndDate (date) {
+    this.setState({
+      endDate: date
+    });
   }
 
   render() {
@@ -20,27 +29,15 @@ export default class componentName extends Component {
         <DatesItem
           title='From'
           date={this.state.startDate}
-          action={this.editStartDay}
+          onPressButton={this.updateStartDate.bind(this)}
         />
         <DatesItem
           title='To'
           date={this.state.endDate}
-          action={this.editEndDay}
+          onPressButton={this.updateEndDate.bind(this)}
         />
       </View>
     );
-  }
-
-  editStartDay(){
-    this.setState({
-      startDate: 'Tue Aug. 22 ; 10:00 AM',
-    })
-  }
-
-  editEndDay(){
-    this.setState({
-      endDate: 'Tue Aug. 24 ; 10:00 AM',
-    })
   }
   
 }

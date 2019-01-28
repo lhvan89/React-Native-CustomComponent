@@ -9,24 +9,22 @@ export default class componentName extends Component {
     }
   }
 
+  onPressButton(data) {
+    this.props.onPressButton(data);
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{this.props.title}</Text>
         <View style={{flexDirection: 'row' }}>
           <Text style={styles.date}>{this.props.date}</Text>
-          <TouchableOpacity onPress={this.props.action}>
+          <TouchableOpacity onPress={() => {this.onPressButton("Tue Aug. 22 ; 10:00 AM")}}>
             <Text style={styles.button}>Edit</Text>
           </TouchableOpacity>
         </View>
       </View>
     );
-  }
-
-  setDate() {
-    this.setState({
-      selectedDate: 'Tue Aug. 22 ; 10:00 AM'
-    })
   }
 }
 
