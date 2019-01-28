@@ -15,11 +15,9 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'center'}}>
-        <Dates
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-        />
+        <Dates/>
       </View>
     );
   }
+
 }
